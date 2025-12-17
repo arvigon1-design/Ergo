@@ -1,0 +1,167 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Inter+Tight:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0');
+
+@layer base {
+  * {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@theme {
+  --color-ergo-blue: #5B9BD5;
+  --color-ergo-blue-dark: #4682B4;
+  --color-ergo-blue-light: #7BB5E3;
+  --color-ergo-gray: #A9A9A9;
+  --color-ergo-gray-light: #D3D3D3;
+  --color-ergo-gray-dark: #696969;
+}
+
+/* Estilos personalizados para formulario HubSpot */
+#hubspot-form-container .hs-form fieldset {
+  max-width: 100% !important;
+}
+
+#hubspot-form-container .hs-form .hs-form-field {
+  margin-bottom: 1rem !important;
+}
+
+#hubspot-form-container .hs-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #4b5563;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#hubspot-form-container .hs-form label .hs-form-required {
+  color: #ef4444;
+}
+
+#hubspot-form-container .hs-form input[type="text"],
+#hubspot-form-container .hs-form input[type="email"],
+#hubspot-form-container .hs-form select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 14px;
+  background-color: #f9fafb;
+  transition: all 0.2s;
+}
+
+#hubspot-form-container .hs-form input[type="text"]:focus,
+#hubspot-form-container .hs-form input[type="email"]:focus,
+#hubspot-form-container .hs-form select:focus {
+  outline: none;
+  border-color: #5B9BD5;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(91, 155, 213, 0.1);
+}
+
+#hubspot-form-container .hs-form .hs-input {
+  width: 100% !important;
+}
+
+#hubspot-form-container .hs-form .hs-richtext {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+#hubspot-form-container .hs-form .hs-richtext a {
+  color: #5B9BD5;
+  text-decoration: underline;
+}
+
+#hubspot-form-container .hs-form .hs-richtext a:hover {
+  color: #4682B4;
+}
+
+#hubspot-form-container .hs-form .legal-consent-container .hs-form-booleancheckbox {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+#hubspot-form-container .hs-form .legal-consent-container .hs-form-booleancheckbox label {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin: 0;
+}
+
+#hubspot-form-container .hs-form .legal-consent-container input[type="checkbox"] {
+  width: 1.125rem;
+  height: 1.125rem;
+  border: 2px solid #d1d5db;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+#hubspot-form-container .hs-form .legal-consent-container input[type="checkbox"]:checked {
+  background-color: #5B9BD5;
+  border-color: #5B9BD5;
+}
+
+#hubspot-form-container .hs-form .hs-button {
+  background-color: #f97316 !important;
+  color: white !important;
+  padding: 0.75rem 2rem !important;
+  border-radius: 0.375rem !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+}
+
+#hubspot-form-container .hs-form .hs-button:hover {
+  background-color: #ea580c !important;
+}
+
+#hubspot-form-container .hs-form .hs-error-msgs {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.25rem;
+}
+
+#hubspot-form-container .hs-form .hs-error-msgs label {
+  color: #ef4444;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+#hubspot-form-container .hs-form .hs-fieldtype-booleancheckbox .hs-error-msgs {
+  margin-left: 2rem;
+}
+
+/* Layout de 2 columnas para los primeros campos */
+#hubspot-form-container .hs-form .hs_firstname,
+#hubspot-form-container .hs-form .hs_email,
+#hubspot-form-container .hs-form .hs_company,
+#hubspot-form-container .hs-form .hs_country {
+  display: inline-block;
+  width: 48%;
+  vertical-align: top;
+}
+
+#hubspot-form-container .hs-form .hs_firstname,
+#hubspot-form-container .hs-form .hs_company {
+  margin-right: 4%;
+}
+
+@media (max-width: 768px) {
+  #hubspot-form-container .hs-form .hs_firstname,
+  #hubspot-form-container .hs-form .hs_email,
+  #hubspot-form-container .hs-form .hs_company,
+  #hubspot-form-container .hs-form .hs_country {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+  }
+}

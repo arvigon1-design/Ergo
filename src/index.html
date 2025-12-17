@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector de Metodologías de Evaluación Ergonómica - IBV</title>
+    
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Inter+Tight:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- HubSpot Forms Script -->
+    <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
+    
+    <style>
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        /* Colores personalizados de Ergo/IBV */
+        :root {
+            --color-ergo-blue: #5B9BD5;
+            --color-ergo-blue-dark: #4682B4;
+            --color-ergo-blue-light: #7BB5E3;
+            --color-ergo-gray: #A9A9A9;
+            --color-ergo-gray-light: #D3D3D3;
+            --color-ergo-gray-dark: #696969;
+        }
+        
+        .bg-ergo-blue { background-color: var(--color-ergo-blue); }
+        .bg-ergo-blue-dark { background-color: var(--color-ergo-blue-dark); }
+        .hover\:bg-ergo-blue:hover { background-color: var(--color-ergo-blue); }
+        .hover\:bg-ergo-blue-dark:hover { background-color: var(--color-ergo-blue-dark); }
+        .text-ergo-blue { color: var(--color-ergo-blue); }
+        .text-ergo-gray-dark { color: var(--color-ergo-gray-dark); }
+        .border-ergo-blue { border-color: var(--color-ergo-blue); }
+        .border-ergo-gray { border-color: var(--color-ergo-gray); }
+        
+        /* Botones personalizados */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 2rem;
+            border-radius: 6.8px;
+            font-weight: 500;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--color-ergo-blue);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--color-ergo-blue-dark);
+        }
+        
+        .btn-success {
+            background-color: #16a34a;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background-color: #15803d;
+        }
+        
+        .btn-outline {
+            background-color: white;
+            border: 1px solid var(--color-ergo-gray);
+            color: var(--color-ergo-gray-dark);
+        }
+        
+        .btn-outline:hover {
+            background-color: #f9fafb;
+        }
+        
+        .btn-outline-blue {
+            background-color: white;
+            border: 1px solid var(--color-ergo-blue);
+            color: var(--color-ergo-blue);
+        }
+        
+        .btn-outline-blue:hover {
+            background-color: var(--color-ergo-blue);
+            color: white;
+        }
+        
+        /* Checkbox personalizado */
+        .custom-checkbox {
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 2px solid #d1d5db;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+        
+        .custom-checkbox:checked {
+            background-color: var(--color-ergo-blue);
+            border-color: var(--color-ergo-blue);
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+        }
+        
+        /* Animaciones suaves */
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        /* Estilos personalizados para formulario HubSpot */
+        #hubspot-form-container .hs-form fieldset {
+            max-width: 100% !important;
+        }
+        
+        #hubspot-form-container .hs-form .hs-form-field {
+            margin-bottom: 1rem !important;
+        }
+        
+        #hubspot-form-container .hs-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #4b5563;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        #hubspot-form-container .hs-form label .hs-form-required {
+            color: #ef4444;
+        }
+        
+        #hubspot-form-container .hs-form input[type="text"],
+        #hubspot-form-container .hs-form input[type="email"],
+        #hubspot-form-container .hs-form select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 14px;
+            background-color: #f9fafb;
+            transition: all 0.2s;
+        }
+        
+        #hubspot-form-container .hs-form input[type="text"]:focus,
+        #hubspot-form-container .hs-form input[type="email"]:focus,
+        #hubspot-form-container .hs-form select:focus {
+            outline: none;
+            border-color: #5B9BD5;
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(91, 155, 213, 0.1);
+        }
+        
+        #hubspot-form-container .hs-form .hs-input {
+            width: 100% !important;
+        }
+        
+        #hubspot-form-container .hs-form .hs-richtext {
+            font-size: 13px;
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        #hubspot-form-container .hs-form .hs-richtext a {
+            color: #5B9BD5;
+            text-decoration: underline;
+        }
+        
+        #hubspot-form-container .hs-form .hs-richtext a:hover {
+            color: #4682B4;
+        }
+        
+        #hubspot-form-container .hs-form .legal-consent-container .hs-form-booleancheckbox {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+        
+        #hubspot-form-container .hs-form .legal-consent-container .hs-form-booleancheckbox label {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            margin: 0;
+        }
+        
+        #hubspot-form-container .hs-form .legal-consent-container input[type="checkbox"] {
+            width: 1.125rem;
+            height: 1.125rem;
+            border: 2px solid #d1d5db;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+        
+        #hubspot-form-container .hs-form .legal-consent-container input[type="checkbox"]:checked {
+            background-color: var(--color-ergo-blue);
+            border-color: var(--color-ergo-blue);
+        }
+        
+        #hubspot-form-container .hs-form .hs-button {
+            background-color: #f97316 !important;
+            color: white !important;
+            padding: 0.75rem 2rem !important;
+            border-radius: 0.375rem !important;
+            font-weight: 600 !important;
+            font-size: 16px !important;
+            border: none !important;
+            cursor: pointer !important;
+            transition: all 0.2s !important;
+        }
+        
+        #hubspot-form-container .hs-form .hs-button:hover {
+            background-color: #ea580c !important;
+        }
+        
+        #hubspot-form-container .hs-form .hs-error-msgs {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.25rem;
+        }
+        
+        #hubspot-form-container .hs-form .hs-error-msgs label {
+            color: #ef4444;
+            font-size: 12px;
+            font-weight: 400;
+        }
+        
+        #hubspot-form-container .hs-form .hs-fieldtype-booleancheckbox .hs-error-msgs {
+            margin-left: 2rem;
+        }
+        
+        /* Layout de 2 columnas para los primeros campos */
+        #hubspot-form-container .hs-form .hs_firstname,
+        #hubspot-form-container .hs-form .hs_email,
+        #hubspot-form-container .hs-form .hs_company,
+        #hubspot-form-container .hs-form .hs_country {
+            display: inline-block;
+            width: 48%;
+            vertical-align: top;
+        }
+        
+        #hubspot-form-container .hs-form .hs_firstname,
+        #hubspot-form-container .hs-form .hs_company {
+            margin-right: 4%;
+        }
+        
+        @media (max-width: 768px) {
+            #hubspot-form-container .hs-form .hs_firstname,
+            #hubspot-form-container .hs-form .hs_email,
+            #hubspot-form-container .hs-form .hs_company,
+            #hubspot-form-container .hs-form .hs_country {
+                display: block;
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        
+        <!-- Header con logos -->
+        <header class="mb-8 text-center">
+            <div class="mb-6 flex items-center justify-center">
+                <div class="flex items-center justify-center gap-3 md:gap-12">
+                    <!-- Logo IBV - Placeholder (reemplazar con imagen real) -->
+                    <img 
+                        src="https://inndih.com/wp-content/uploads/LOGO_IBV_th_RGB.png" 
+                        alt="Logo IBV - Instituto de Biomecánica de Valencia" 
+                        class="h-10 md:h-[42px] w-auto object-contain"
+                    />
+                    <!-- Logo Ergo/IBV - Placeholder (reemplazar con imagen real) -->
+                    <img 
+                        src="https://www.ergoibv.com/wp-content/uploads/2021/03/Home-02-LogoErgoIBV.png" 
+                        alt="Logo Ergo/IBV" 
+                        class="h-10 md:h-[42px] w-auto object-contain"
+                    />
+                </div>
+            </div>
+        </header>
+        
+        <!-- Barra de progreso -->
+        <div id="progress-bar" class="mb-8 hidden">
+            <div class="flex justify-between items-center mb-2">
+                <span class="font-medium text-gray-700">Progreso</span>
+                <span id="progress-percentage" class="font-medium text-ergo-blue">0%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-3">
+                <div 
+                    id="progress-fill"
+                    class="bg-ergo-blue h-3 rounded-full transition-all duration-300"
+                    style="width: 0%"
+                ></div>
+            </div>
+            <div class="flex justify-between mt-2 text-gray-500">
+                <span id="step-label-1">Persona</span>
+                <span id="step-label-2">Tarea</span>
+                <span id="step-label-3">Acceso</span>
+                <span id="step-label-4">Resultados</span>
+            </div>
+        </div>
+        
+        <!-- Contenido principal -->
+        <main class="bg-white rounded-lg shadow-lg p-8 md:p-12 fade-in" id="main-content">
+            <!-- El contenido se inyectará dinámicamente aquí -->
+        </main>
+        
+        <!-- Footer -->
+        <footer class="mt-8 text-center text-gray-600">
+            <p>&copy; 2025 Instituto de Biomecánica de Valencia (IBV) - <a href="https://www.ergoibv.com/es/" target="_blank" rel="noopener noreferrer" class="text-ergo-blue hover:underline">www.ergoibv.com</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Estado de la aplicación
+        let currentStep = 0;
+        const formData = {
+            personConditions: {
+                qualitativeEvaluation: false,
+                seniorWorker: false,
+                pregnancy: false,
+                telework: false,
+                screenWork: false
+            },
+            physicalTaskLoad: {
+                manualHandling: false,
+                pushPull: false,
+                repetitiveMovements: false,
+                forcedPostures: false,
+                posturalEvaluationType: '',
+                toolsForceVibration: false
+            }
+        };
+
+        // Metodologías disponibles
+        const methodologies = [
+            {
+                id: "ergocheck",
+                name: "ErgoCheck - Evaluación inicial cualitativa",
+                description: "Herramienta de evaluación inicial rápida que permite identificar los principales factores de riesgo ergonómico del puesto de trabajo antes de aplicar métodos específicos más detallados.",
+                bodyArea: ["wholebody"],
+                workType: ["static", "dynamic", "repetitive", "manual"],
+                riskLevel: "low",
+                link: "https://www.ergoibv.com/herramientas/ergocheck/"
+            },
+            {
+                id: "ergo50",
+                name: "Ergo+50 - Trabajadores senior",
+                description: "Herramienta específica para la evaluación ergonómica de puestos ocupados por trabajadores de 50 años o más, considerando las características del envejecimiento activo y la capacidad funcional.",
+                bodyArea: ["wholebody", "back", "handArms", "lowerLimbs"],
+                workType: ["static", "dynamic", "repetitive", "manual"],
+                riskLevel: "high",
+                link: "https://www.ergoibv.com/herramientas/ergo50/"
+            },
+            {
+                id: "ergomater",
+                name: "ErgoMater - Embarazo (PRIORITARIO)",
+                description: "Evaluación específica y prioritaria para trabajadoras embarazadas o en periodo de lactancia. Analiza la adecuación del puesto según normativa de prevención de riesgos laborales.",
+                bodyArea: ["wholebody", "back"],
+                workType: ["static", "dynamic", "manual"],
+                riskLevel: "high",
+                link: "https://www.ergoibv.com/herramientas/ergomater/"
+            },
+            {
+                id: "teletrabajo",
+                name: "Evaluación de Teletrabajo",
+                description: "Herramienta para evaluar las condiciones ergonómicas del teletrabajo, incluyendo aspectos de espacio, mobiliario, equipamiento y organización del trabajo en remoto.",
+                bodyArea: ["back", "handArms"],
+                workType: ["static"],
+                riskLevel: "medium",
+                link: "https://www.ergoibv.com/herramientas/teletrabajo/"
+            },
+            {
+                id: "pvd",
+                name: "Oficina/PVD - Pantallas de Visualización",
+                description: "Evaluación ergonómica de puestos de trabajo con pantallas de visualización de datos (ordenador, portátil, tablet) según el Real Decreto 488/1997.",
+                bodyArea: ["back", "handArms"],
+                workType: ["static"],
+                riskLevel: "medium",
+                link: "https://www.ergoibv.com/herramientas/pvd/"
+            },
+            {
+                id: "mmc",
+                name: "MMC - Manipulación Manual de Cargas",
+                description: "Evaluación completa de la manipulación manual de cargas (levantamiento, descenso, transporte) según ISO 11228. Incluye tareas simples, variables, secuenciales y múltiples.",
+                bodyArea: ["back", "wholebody"],
+                workType: ["manual"],
+                riskLevel: "high",
+                link: "https://www.ergoibv.com/herramientas/mmc/"
+            },
+            {
+                id: "empuje",
+                name: "Empujes y Arrastres",
+                description: "Evaluación de tareas de empuje y arrastre de cargas sobre ruedas (carros, contenedores, etc.) según ISO 11228-2. Analiza las fuerzas inicial y sostenida.",
+                bodyArea: ["back", "wholebody", "handArms"],
+                workType: ["manual", "dynamic"],
+                riskLevel: "high",
+                link: "https://www.ergoibv.com/herramientas/empuje-arrastre/"
+            },
+            {
+                id: "ocra",
+                name: "Check-List OCRA",
+                description: "Evaluación de movimientos repetitivos de miembros superiores según ISO 11228-3. Analiza frecuencia, fuerza, posturas, tiempos de recuperación y factores adicionales.",
+                bodyArea: ["handArms"],
+                workType: ["repetitive"],
+                riskLevel: "high",
+                link: "https://www.ergoibv.com/herramientas/ocra/"
+            },
+            {
+                id: "owas",
+                name: "OWAS - Análisis de Posturas",
+                description: "Análisis de posturas de trabajo forzadas. Evalúa la posición de espalda, brazos y piernas, y la carga manejada durante tareas prolongadas.",
+                bodyArea: ["back", "lowerLimbs", "wholebody"],
+                workType: ["static", "dynamic"],
+                riskLevel: "medium",
+                link: "https://www.ergoibv.com/herramientas/owas/"
+            },
+            {
+                id: "reba",
+                name: "REBA - Evaluación Postural Cuerpo Completo",
+                description: "Método para evaluar posturas forzadas de todo el cuerpo. Especialmente útil en tareas impredecibles, asimétricas y con cambios rápidos de postura.",
+                bodyArea: ["wholebody", "back", "handArms", "lowerLimbs"],
+                workType: ["static", "dynamic", "manual"],
+                riskLevel: "medium",
+                link: "https://www.ergoibv.com/herramientas/reba/"
+            },
+            {
+                id: "rula",
+                name: "RULA - Evaluación Extremidades Superiores",
+                description: "Evaluación rápida de extremidades superiores. Ideal para trabajos sedentarios y tareas con posturas mantenidas o repetitivas de cuello, tronco y brazos.",
+                bodyArea: ["handArms", "back"],
+                workType: ["static", "repetitive"],
+                riskLevel: "medium",
+                link: "https://www.ergoibv.com/herramientas/rula/"
+            },
+            {
+                id: "fuerza-vibracion",
+                name: "Fuerza y Vibraciones",
+                description: "Evaluación de la exposición a vibraciones mano-brazo y cuerpo completo, y análisis de herramientas que requieren aplicación de fuerza elevada.",
+                bodyArea: ["handArms", "wholebody"],
+                workType: ["manual", "dynamic"],
+                riskLevel: "high",
+                link: "https://www.ergoibv.com/herramientas/vibraciones/"
+            }
+        ];
+
+        // Funciones de navegación
+        function navigateToStep(step) {
+            currentStep = step;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            updateProgressBar();
+            renderCurrentStep();
+        }
+
+        function updateProgressBar() {
+            const progressBar = document.getElementById('progress-bar');
+            const progressFill = document.getElementById('progress-fill');
+            const progressPercentage = document.getElementById('progress-percentage');
+            const stepLabels = [
+                document.getElementById('step-label-1'),
+                document.getElementById('step-label-2'),
+                document.getElementById('step-label-3'),
+                document.getElementById('step-label-4')
+            ];
+
+            if (currentStep === 0) {
+                progressBar.classList.add('hidden');
+            } else {
+                progressBar.classList.remove('hidden');
+                const progress = (currentStep / 4) * 100;
+                progressFill.style.width = progress + '%';
+                progressPercentage.textContent = Math.round(progress) + '%';
+                
+                stepLabels.forEach((label, index) => {
+                    if (index + 1 === currentStep) {
+                        label.classList.add('font-semibold');
+                    } else {
+                        label.classList.remove('font-semibold');
+                    }
+                });
+            }
+        }
+
+        function renderCurrentStep() {
+            const mainContent = document.getElementById('main-content');
+            mainContent.classList.remove('fade-in');
+            
+            setTimeout(() => {
+                switch(currentStep) {
+                    case 0:
+                        renderWelcome();
+                        break;
+                    case 1:
+                        renderStep1();
+                        break;
+                    case 2:
+                        renderStep2();
+                        break;
+                    case 3:
+                        renderStep3();
+                        break;
+                    case 4:
+                        renderResults();
+                        break;
+                }
+                mainContent.classList.add('fade-in');
+            }, 50);
+        }
+
+        function renderWelcome() {
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = `
+                <div class="text-center">
+                    <!-- Cuestionario y recomendador badge -->
+                    <div class="flex justify-center mb-4">
+                        <div class="bg-blue-50 box-border flex gap-1 items-center px-4 py-2 rounded-[25px] border border-solid border-white shadow-[0px_3px_8px_0px_rgba(29,29,27,0.1)]">
+                            <span class="material-symbols-outlined" style="font-size: 16px; color: #1C1B1F; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">wand_stars</span>
+                            <p class="font-['Inter_Tight',sans-serif] font-medium leading-[16px] text-[#1d1d1b] text-[16px] whitespace-nowrap">Cuestionario y recomendador</p>
+                        </div>
+                    </div>
+                    
+                    <h1 class="font-['Inter_Tight',sans-serif] font-medium text-[#1d1d1b] mb-4 text-[42px] leading-[48px] max-w-[654px] mx-auto">
+                        Selector de Metodologías de Evaluación Ergonómica
+                    </h1>
+                    
+                    <p class="font-['Inter_Tight',sans-serif] font-medium text-[#364153] mb-8 max-w-[654px] mx-auto leading-[24px] text-[16px]">
+                        Esta herramienta le ayudará a seleccionar la metodología de evaluación ergonómica 
+                        más adecuada para su puesto de trabajo, basándose en las condiciones laborales 
+                        y los factores de riesgo identificados.
+                    </p>
+                    
+                    <div class="bg-gradient-to-r from-[rgba(123,181,227,0.2)] to-[rgba(91,155,213,0.2)] border-l-[4px] border-[#5b9bd5] rounded-[10px] p-6 mb-8 max-w-4xl mx-auto">
+                        <p class="font-['Inter',sans-serif] font-medium leading-[24px] text-[#1e2939] text-[14px] text-left">
+                            Responde unas pocas preguntas sobre la tarea que quieres analizar y te diremos qué metodología oficial debes usar (ISO 11228, OCRA, REBA, RULA, PVD, etc.). Al final podrás recibir una guía PDF con recomendaciones personalizadas.
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
+                        <div class="p-6 bg-gradient-to-br from-gray-50 to-[#F2F7FD] rounded-[10px] flex flex-col gap-3 items-center justify-center border-[3px] border-blue-50">
+                            <span class="material-symbols-outlined" style="font-size: 48px; color: #61A4D7; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">person_text</span>
+                            <div class="bg-[rgba(255,255,255,0.5)] box-border flex gap-[10px] items-center justify-center px-6 py-2 relative rounded-[25px] shrink-0 border border-solid border-white">
+                                <p class="font-['Inter_Tight',sans-serif] font-[400] text-[24px] text-[#61a4d7] text-center whitespace-nowrap">· Paso 1</p>
+                            </div>
+                            <p class="font-['Inter_Tight',sans-serif] font-[400] text-[16px] leading-[22px] text-[#4a5565] text-center">Describa las condiciones de trabajo y tipo de tarea</p>
+                        </div>
+                        
+                        <div class="p-6 bg-gradient-to-br from-gray-50 to-[#F2F7FD] rounded-[10px] flex flex-col gap-3 items-center justify-center border-[3px] border-blue-50">
+                            <span class="material-symbols-outlined" style="font-size: 48px; color: #61A4D7; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">body_system</span>
+                            <div class="bg-[rgba(255,255,255,0.5)] box-border flex gap-[10px] items-center justify-center px-6 py-2 relative rounded-[25px] shrink-0 border border-solid border-white">
+                                <p class="font-['Inter_Tight',sans-serif] font-[400] text-[24px] text-[#61a4d7] text-center whitespace-nowrap">· Paso 2</p>
+                            </div>
+                            <p class="font-['Inter_Tight',sans-serif] font-[400] text-[16px] leading-[22px] text-[#4a5565] text-center">Indique la carga física y áreas corporales afectadas</p>
+                        </div>
+                        
+                        <div class="p-6 bg-gradient-to-br from-gray-50 to-[#F2F7FD] rounded-[10px] flex flex-col gap-3 items-center justify-center border-[3px] border-blue-50">
+                            <span class="material-symbols-outlined" style="font-size: 48px; color: #61A4D7; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">reviews</span>
+                            <div class="bg-[rgba(255,255,255,0.5)] box-border flex gap-[10px] items-center justify-center px-6 py-2 relative rounded-[25px] shrink-0 border border-solid border-white">
+                                <p class="font-['Inter_Tight',sans-serif] font-[400] text-[24px] text-[#61a4d7] text-center whitespace-nowrap">· Paso 3</p>
+                            </div>
+                            <p class="font-['Inter_Tight',sans-serif] font-[400] text-[16px] leading-[22px] text-[#4a5565] text-center">Obtenga las metodologías recomendadas</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Cómo funciona -->
+                    <div class="bg-blue-50 border border-[#bedbff] rounded-[10px] p-8 mb-8 max-w-4xl mx-auto text-left">
+                        <div class="flex gap-1 items-center mb-6">
+                            <span class="material-symbols-outlined" style="font-size: 24px; color: #61A4D7; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">info</span>
+                            <h3 class="font-['Inter_Tight',sans-serif] font-[400] leading-[42px] text-[#61a4d7] text-[28px]">
+                                ¿Cómo funciona?
+                            </h3>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-3">
+                            <div class="bg-[rgba(255,255,255,0.7)] box-border flex gap-3 items-center px-3 py-2 rounded-[20px] border border-solid border-white">
+                                <div class="relative shrink-0 w-5 h-5">
+                                    <svg class="block w-full h-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20 20">
+                                        <path d="M18.1675 8.33332C18.5481 10.2011 18.2769 12.1428 17.399 13.8348C16.5212 15.5268 15.0899 16.8667 13.3438 17.6311C11.5976 18.3955 9.6422 18.5381 7.80359 18.0353C5.96498 17.5325 4.35433 16.4145 3.24024 14.8678C2.12614 13.3212 1.57594 11.4394 1.68139 9.53615C1.78684 7.63294 2.54157 5.8234 3.81972 4.4093C5.09786 2.9952 6.82216 2.06202 8.70506 1.76537C10.588 1.46872 12.5157 1.82654 14.1667 2.77916" stroke="#5B9BD5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.66667" />
+                                        <path d="M7.5 9.16667L10 11.6667L18.3333 3.33333" stroke="#5B9BD5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.66667" />
+                                    </svg>
+                                </div>
+                                <p class="font-['Inter',sans-serif] leading-[24px] text-[#364153] text-[16px]">Basado en criterios técnicos y normativa reconocida</p>
+                            </div>
+                            
+                            <div class="bg-[rgba(255,255,255,0.7)] box-border flex gap-3 items-center px-3 py-2 rounded-[20px] border border-solid border-white">
+                                <div class="relative shrink-0 w-5 h-5">
+                                    <svg class="block w-full h-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20 20">
+                                        <path d="M18.1675 8.33332C18.5481 10.2011 18.2769 12.1428 17.399 13.8348C16.5212 15.5268 15.0899 16.8667 13.3438 17.6311C11.5976 18.3955 9.6422 18.5381 7.80359 18.0353C5.96498 17.5325 4.35433 16.4145 3.24024 14.8678C2.12614 13.3212 1.57594 11.4394 1.68139 9.53615C1.78684 7.63294 2.54157 5.8234 3.81972 4.4093C5.09786 2.9952 6.82216 2.06202 8.70506 1.76537C10.588 1.46872 12.5157 1.82654 14.1667 2.77916" stroke="#5B9BD5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.66667" />
+                                        <path d="M7.5 9.16667L10 11.6667L18.3333 3.33333" stroke="#5B9BD5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.66667" />
+                                    </svg>
+                                </div>
+                                <p class="font-['Inter',sans-serif] leading-[24px] text-[#364153] text-[16px]">Pensado para técnicos de PRL y ergonomía</p>
+                            </div>
+                            
+                            <div class="bg-[rgba(255,255,255,0.7)] box-border flex gap-3 items-center px-3 py-2 rounded-[20px] border border-solid border-white">
+                                <div class="relative shrink-0 w-5 h-5">
+                                    <svg class="block w-full h-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20 20">
+                                        <path d="M18.1675 8.33332C18.5481 10.2011 18.2769 12.1428 17.399 13.8348C16.5212 15.5268 15.0899 16.8667 13.3438 17.6311C11.5976 18.3955 9.6422 18.5381 7.80359 18.0353C5.96498 17.5325 4.35433 16.4145 3.24024 14.8678C2.12614 13.3212 1.57594 11.4394 1.68139 9.53615C1.78684 7.63294 2.54157 5.8234 3.81972 4.4093C5.09786 2.9952 6.82216 2.06202 8.70506 1.76537C10.588 1.46872 12.5157 1.82654 14.1667 2.77916" stroke="#5B9BD5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.66667" />
+                                        <path d="M7.5 9.16667L10 11.6667L18.3333 3.33333" stroke="#5B9BD5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.66667" />
+                                    </svg>
+                                </div>
+                                <p class="font-['Inter',sans-serif] leading-[24px] text-[#364153] text-[16px]">Resultado en menos de 2 minutos</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button 
+                        onclick="navigateToStep(1)"
+                        class="btn btn-primary mb-8"
+                    >
+                        Comenzar Evaluación
+                    </button>
+                    
+                    <div class="p-8 bg-blue-50 rounded-[10px] border border-blue-100 max-w-4xl mx-auto text-left">
+                        <p class="font-['Inter',sans-serif] font-extrabold leading-[14px] text-[#1d1d1b] text-[14px] mb-2">
+                            NOTA:
+                        </p>
+                        <p class="font-['Inter',sans-serif] font-medium leading-[24px] text-[#364153] text-[14px]">
+                            Las metodologías recomendadas son orientativas. Se recomienda consultar con un especialista en ergonomía para una evaluación completa y personalizada.
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderStep1() {
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = `
+                <form onsubmit="handleStep1Submit(event)" class="space-y-8">
+                    <div>
+                        <div class="mb-4">
+                            <div class="flex gap-4 items-center">
+                                <div class="bg-[rgba(97,164,215,0.2)] box-border flex gap-2 items-center justify-center px-4 py-3 rounded-[30px] border-2 border-[#61a4d7] border-solid">
+                                    <p class="font-['Inter',sans-serif] font-bold text-[#61a4d7] text-[16px] whitespace-nowrap">PASO 1 DE 2</p>
+                                </div>
+                                <div class="flex gap-2 items-center">
+                                    <span class="material-symbols-outlined" style="font-size: 36px; color: #61A4D7;">
+                                        hail
+                                    </span>
+                                    <p class="font-['Inter_Tight',sans-serif] text-[#5b9bd5] text-[36px]">Condiciones de la persona y del puesto</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-2">
+                            Selecciona todas las opciones que correspondan.
+                        </p>
+                        <p class="text-gray-600 italic mb-8">
+                            Estas preguntas ayudarán a identificar las metodologías oficiales más apropiadas para tu evaluación ergonómica.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Evaluación cualitativa -->
+                        <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 hover:border-ergo-blue transition-colors">
+                            <div class="flex items-start space-x-3">
+                                <input 
+                                    type="checkbox" 
+                                    id="qualitativeEvaluation"
+                                    class="custom-checkbox"
+                                    ${formData.personConditions.qualitativeEvaluation ? 'checked' : ''}
+                                    onchange="formData.personConditions.qualitativeEvaluation = this.checked"
+                                />
+                                <div class="flex-1">
+                                    <label for="qualitativeEvaluation" class="cursor-pointer text-gray-900 font-medium">
+                                        ¿Quieres realizar una evaluación inicial cualitativa del puesto?
+                                    </label>
+                                    <p class="text-gray-600 mt-2 text-sm">
+                                        Una evaluación inicial permite identificar rápidamente los principales factores de riesgo antes de aplicar métodos específicos más detallados.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Trabajador senior -->
+                        <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 hover:border-ergo-blue transition-colors">
+                            <div class="flex items-start space-x-3">
+                                <input 
+                                    type="checkbox" 
+                                    id="seniorWorker"
+                                    class="custom-checkbox"
+                                    ${formData.personConditions.seniorWorker ? 'checked' : ''}
+                                    onchange="formData.personConditions.seniorWorker = this.checked"
+                                />
+                                <div class="flex-1">
+                                    <label for="seniorWorker" class="cursor-pointer text-gray-900 font-medium">
+                                        ¿La persona que realiza la tarea tiene 50 años o más?
+                                    </label>
+                                    <p class="text-gray-600 mt-2 text-sm">
+                                        Los trabajadores senior requieren una evaluación que considere las características específicas del envejecimiento activo.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Embarazo -->
+                        <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 hover:border-ergo-blue transition-colors">
+                            <div class="flex items-start space-x-3">
+                                <input 
+                                    type="checkbox" 
+                                    id="pregnancy"
+                                    class="custom-checkbox"
+                                    ${formData.personConditions.pregnancy ? 'checked' : ''}
+                                    onchange="formData.personConditions.pregnancy = this.checked"
+                                />
+                                <div class="flex-1">
+                                    <label for="pregnancy" class="cursor-pointer text-gray-900 font-medium">
+                                        ¿La tarea se realiza por una trabajadora embarazada o estás evaluando su adecuación durante el embarazo?
+                                    </label>
+                                    <p class="text-gray-600 mt-2 text-sm">
+                                        El embarazo requiere una evaluación específica y prioritaria según la normativa de prevención de riesgos laborales.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Teletrabajo -->
+                        <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 hover:border-ergo-blue transition-colors">
+                            <div class="flex items-start space-x-3">
+                                <input 
+                                    type="checkbox" 
+                                    id="telework"
+                                    class="custom-checkbox"
+                                    ${formData.personConditions.telework ? 'checked' : ''}
+                                    onchange="formData.personConditions.telework = this.checked"
+                                />
+                                <div class="flex-1">
+                                    <label for="telework" class="cursor-pointer text-gray-900 font-medium">
+                                        ¿La tarea se realiza total o parcialmente en teletrabajo?
+                                    </label>
+                                    <p class="text-gray-600 mt-2 text-sm">
+                                        El teletrabajo presenta características ergonómicas específicas que requieren evaluación adaptada.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pantallas -->
+                        <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 hover:border-ergo-blue transition-colors">
+                            <div class="flex items-start space-x-3">
+                                <input 
+                                    type="checkbox" 
+                                    id="screenWork"
+                                    class="custom-checkbox"
+                                    ${formData.personConditions.screenWork ? 'checked' : ''}
+                                    onchange="formData.personConditions.screenWork = this.checked"
+                                />
+                                <div class="flex-1">
+                                    <label for="screenWork" class="cursor-pointer text-gray-900 font-medium">
+                                        ¿Se utilizan pantallas (ordenador, portátil, tablet) más de 2 horas al día?
+                                    </label>
+                                    <p class="text-gray-600 mt-2 text-sm">
+                                        El trabajo continuado con pantallas de visualización requiere evaluación ergonómica específica según normativa.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end pt-6 border-t">
+                        <button 
+                            type="submit" 
+                            class="btn btn-primary flex items-center gap-2"
+                        >
+                            Siguiente
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            `;
+        }
+
+        function renderStep2() {
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = `
+                <form onsubmit="handleStep2Submit(event)" class="space-y-8">
+                    <div>
+                        <div class="mb-4">
+                            <div class="flex gap-4 items-center">
+                                <div class="bg-[rgba(97,164,215,0.2)] box-border flex gap-2 items-center justify-center px-4 py-3 rounded-[30px] border-2 border-[#61a4d7] border-solid">
+                                    <p class="font-['Inter',sans-serif] font-bold text-[#61a4d7] text-[16px] whitespace-nowrap">PASO 2 DE 2</p>
+                                </div>
+                                <div class="flex gap-2 items-center">
+                                    <span class="material-symbols-outlined" style="font-size: 36px; color: #61A4D7;">
+                                        fitness_center
+                                    </span>
+                                    <p class="font-['Inter_Tight',sans-serif] text-[#61a4d7] text-[36px]">Carga física y tipo de tarea</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-2">
+                            Describe las exigencias físicas y características de la tarea a evaluar.
+                        </p>
+                        <p class="text-gray-600 italic mb-8">
+                            Estas preguntas determinarán qué metodologías específicas (ISO 11229, OCRA, REBA, etc.) se recomendarán.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Cargas de 3 kg o más -->
+                        <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 hover:border-ergo-blue transition-colors">
+                            <div class="flex items-start space-x-3">
+                                <input 
+                                    type="checkbox" 
+                                    id="manualHandling"
+                                    class="custom-checkbox"
+                                    ${formData.physicalTaskLoad.manualHandling ? 'checked' : ''}
+                                    onchange="formData.physicalTaskLoad.manualHandling = this.checked"
+                                />
+                                <div class="flex-1">
+                                    <label for="manualHandling" class="cursor-pointer text-gray-900 font-medium">
+                                        ¿Se levantan, bajan o transportan cargas de 3 kg o más?
+                                    </label>
+                                    <p class="text-gray-600 mt-2 text-sm">
+                                        La manipulación manual de cargas a partir de 3 kg puede suponer riesgo ergonómico según ISO 11228.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Empujes o arrastres -->
+                        <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 hover:border-ergo-blue transition-colors">
+                            <div class="flex items-start space-x-3">
+                                <input 
+                                    type="checkbox" 
+                                    id="pushPull"
+                                    class="custom-checkbox"
+                                    ${formData.physicalTaskLoad.pushPull ? 'checked' : ''}
+                                    onchange="formData.physicalTaskLoad.pushPull = this.checked"
+                                />
+                                <div class="flex-1">
+                                    <label for="pushPull" class="cursor-pointer text-gray-900 font-medium">
+                                        ¿Se realizan empujes o arrastres de forma relevante?
+                                    </label>
+                                    <p class="text-gray-600 mt-2 text-sm">
+                                        El empuje y arrastre de cargas sobre ruedas (carros, contenedores) puede generar esfuerzo físico significativo.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Movimientos repetitivos -->
+                        <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 hover:border-ergo-blue transition-colors">
+                            <div class="flex items-start space-x-3">
+                                <input 
+                                    type="checkbox" 
+                                    id="repetitiveMovements"
+                                    class="custom-checkbox"
+                                    ${formData.physicalTaskLoad.repetitiveMovements ? 'checked' : ''}
+                                    onchange="formData.physicalTaskLoad.repetitiveMovements = this.checked"
+                                />
+                                <div class="flex-1">
+                                    <label for="repetitiveMovements" class="cursor-pointer text-gray-900 font-medium">
+                                        ¿La tarea exige movimientos repetitivos de manos, muñecas o brazos?
+                                    </label>
+                                    <p class="text-gray-600 mt-2 text-sm">
+                                        Los movimientos repetitivos de extremidad superior pueden causar trastornos musculoesqueléticos según ISO 11228-3.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Posturas forzadas -->
+                        <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 hover:border-ergo-blue transition-colors">
+                            <div class="flex items-start space-x-3">
+                                <input 
+                                    type="checkbox" 
+                                    id="forcedPostures"
+                                    class="custom-checkbox"
+                                    ${formData.physicalTaskLoad.forcedPostures ? 'checked' : ''}
+                                    onchange="formData.physicalTaskLoad.forcedPostures = this.checked; renderStep2();"
+                                />
+                                <div class="flex-1">
+                                    <label for="forcedPostures" class="cursor-pointer text-gray-900 font-medium">
+                                        ¿Se adoptan posturas forzadas o estáticas (tronco flexionado, brazos elevados, etc.)?
+                                    </label>
+                                    <p class="text-gray-600 mt-2 text-sm">
+                                        Las posturas forzadas prolongadas son un factor de riesgo ergonómico importante.
+                                    </p>
+                                    
+                                    ${formData.physicalTaskLoad.forcedPostures ? `
+                                    <div class="mt-4 pl-4 border-l-4 border-ergo-blue bg-white rounded-r-lg p-4 space-y-3">
+                                        <p class="font-medium text-gray-900 mb-3">
+                                            ¿Qué tipo de evaluación postural necesitas?
+                                        </p>
+                                        
+                                        <label class="flex items-start space-x-3 cursor-pointer group">
+                                            <input
+                                                type="radio"
+                                                name="posturalEvaluationType"
+                                                value="sampling"
+                                                ${formData.physicalTaskLoad.posturalEvaluationType === 'sampling' ? 'checked' : ''}
+                                                onchange="formData.physicalTaskLoad.posturalEvaluationType = this.value"
+                                                class="mt-1 w-4 h-4"
+                                                style="accent-color: var(--color-ergo-blue);"
+                                            />
+                                            <div class="flex-1">
+                                                <span class="text-gray-900 group-hover:text-ergo-blue transition-colors">
+                                                    Quiero realizar un muestreo de posturas a lo largo de la jornada.
+                                                </span>
+                                            </div>
+                                        </label>
+                                        
+                                        <label class="flex items-start space-x-3 cursor-pointer group">
+                                            <input
+                                                type="radio"
+                                                name="posturalEvaluationType"
+                                                value="wholebody"
+                                                ${formData.physicalTaskLoad.posturalEvaluationType === 'wholebody' ? 'checked' : ''}
+                                                onchange="formData.physicalTaskLoad.posturalEvaluationType = this.value"
+                                                class="mt-1 w-4 h-4"
+                                                style="accent-color: var(--color-ergo-blue);"
+                                            />
+                                            <div class="flex-1">
+                                                <span class="text-gray-900 group-hover:text-ergo-blue transition-colors">
+                                                    Quiero analizar posturas específicas considerando la totalidad del cuerpo.
+                                                </span>
+                                            </div>
+                                        </label>
+                                        
+                                        <label class="flex items-start space-x-3 cursor-pointer group">
+                                            <input
+                                                type="radio"
+                                                name="posturalEvaluationType"
+                                                value="upperlimb"
+                                                ${formData.physicalTaskLoad.posturalEvaluationType === 'upperlimb' ? 'checked' : ''}
+                                                onchange="formData.physicalTaskLoad.posturalEvaluationType = this.value"
+                                                class="mt-1 w-4 h-4"
+                                                style="accent-color: var(--color-ergo-blue);"
+                                            />
+                                            <div class="flex-1">
+                                                <span class="text-gray-900 group-hover:text-ergo-blue transition-colors">
+                                                    Quiero analizar posturas específicas dando prioridad a los miembros superiores.
+                                                </span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    ` : ''}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Herramientas con fuerza o vibración -->
+                        <div class="p-6 bg-gray-50 rounded-lg border border-gray-200 hover:border-ergo-blue transition-colors">
+                            <div class="flex items-start space-x-3">
+                                <input 
+                                    type="checkbox" 
+                                    id="toolsForceVibration"
+                                    class="custom-checkbox"
+                                    ${formData.physicalTaskLoad.toolsForceVibration ? 'checked' : ''}
+                                    onchange="formData.physicalTaskLoad.toolsForceVibration = this.checked"
+                                />
+                                <div class="flex-1">
+                                    <label for="toolsForceVibration" class="cursor-pointer text-gray-900 font-medium">
+                                        ¿Se usan herramientas que requieren fuerza elevada o vibran?
+                                    </label>
+                                    <p class="text-gray-600 mt-2 text-sm">
+                                        Las herramientas que requieren esfuerzo importante o transmiten vibraciones pueden generar fatiga y lesiones.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between pt-6 border-t">
+                        <button 
+                            type="button"
+                            onclick="navigateToStep(1)"
+                            class="btn btn-outline flex items-center gap-2"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                            Atrás
+                        </button>
+                        <button 
+                            type="submit" 
+                            class="btn btn-success flex items-center gap-2 px-6"
+                        >
+                            Ver resultados
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 11 12 14 22 4"></polyline>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            `;
+            
+            // Agregar event listener directamente al formulario
+            const form = document.querySelector('#main-content form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    console.log('Submit del formulario paso 2 - navegando a paso 3');
+                    navigateToStep(3);
+                });
+            }
+        }
+
+        function renderStep3() {
+            console.log('Renderizando paso 3 - Pantalla de introducción');
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = `
+                <div class="space-y-8">
+                    <!-- Header con badge y título -->
+                    <div class="flex flex-col items-center gap-4 mb-8">
+                        <div class="bg-[#eff6ff] flex gap-1 items-center px-4 py-2 rounded-[25px] border border-white shadow-[0px_3px_8px_0px_rgba(29,29,27,0.1)]">
+                            <span class="material-symbols-outlined" style="font-size: 16px; color: #1C1B1F; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">verified</span>
+                            <p class="font-['Inter_Tight',sans-serif] font-medium leading-[16px] text-[#1d1d1b] text-[16px] whitespace-nowrap">La importancia de las metodologías científicamente validadas</p>
+                        </div>
+                        <h2 class="font-['Inter_Tight',sans-serif] text-[#1d1d1b] text-[42px] leading-[48px] text-center">Evaluación de Riesgos Ergonómicos</h2>
+                    </div>
+                    <!-- Párrafo introductorio -->
+                    <p class="font-['Inter',sans-serif] text-[#364153] text-[16px] leading-[26px] mb-6">
+                        Los <span class="font-semibold">trastornos musculoesqueléticos (TME)</span> representan el problema de salud laboral más común en Europa, afectando a millones de trabajadores y generando importantes costes económicos y sociales.
+                    </p>
+
+                    <!-- Caja "El desafío de la evaluación ergonómica" -->
+                    <div class="bg-[#eff6ff] border border-[#bedbff] rounded-[10px] p-8 mb-6">
+                        <div class="flex flex-col gap-6">
+                            <div class="flex flex-col gap-1">
+                                <div class="flex gap-2 items-center mb-1">
+                                    <span class="material-symbols-outlined" style="font-size: 24px; color: #61A4D7; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">swords</span>
+                                    <h3 class="font-['Inter_Tight',sans-serif] text-[#61a4d7] text-[28px]">El desafío de la evaluación ergonómica</h3>
+                                </div>
+                                <p class="font-['Inter',sans-serif] text-[#364153] text-[14px] leading-[20px]">La prevención de TME requiere evaluar múltiples factores de riesgo:</p>
+                            </div>
+
+                            <!-- Lista de factores con iconos de check -->
+                            <div class="flex flex-wrap gap-3">
+                                <div class="bg-[rgba(255,255,255,0.7)] border border-white flex gap-3 items-center px-3 py-2 rounded-[20px]">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.5 10L9.16667 11.6667L12.5 8.33333M17.5 10C17.5 14.1421 14.1421 17.5 10 17.5C5.85786 17.5 2.5 14.1421 2.5 10C2.5 5.85786 5.85786 2.5 10 2.5C14.1421 2.5 17.5 5.85786 17.5 10Z" stroke="#5B9BD5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <p class="font-['Inter',sans-serif] text-[#364153] text-[16px] leading-[24px] whitespace-nowrap">Manipulación manual de cargas</p>
+                                </div>
+                                <div class="bg-[rgba(255,255,255,0.7)] border border-white flex gap-3 items-center px-3 py-2 rounded-[20px]">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.5 10L9.16667 11.6667L12.5 8.33333M17.5 10C17.5 14.1421 14.1421 17.5 10 17.5C5.85786 17.5 2.5 14.1421 2.5 10C2.5 5.85786 5.85786 2.5 10 2.5C14.1421 2.5 17.5 5.85786 17.5 10Z" stroke="#5B9BD5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <p class="font-['Inter',sans-serif] text-[#364153] text-[16px] leading-[24px] whitespace-nowrap">Posturas forzadas y mantenidas</p>
+                                </div>
+                                <div class="bg-[rgba(255,255,255,0.7)] border border-white flex gap-3 items-center px-3 py-2 rounded-[20px]">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.5 10L9.16667 11.6667L12.5 8.33333M17.5 10C17.5 14.1421 14.1421 17.5 10 17.5C5.85786 17.5 2.5 14.1421 2.5 10C2.5 5.85786 5.85786 2.5 10 2.5C14.1421 2.5 17.5 5.85786 17.5 10Z" stroke="#5B9BD5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <p class="font-['Inter',sans-serif] text-[#364153] text-[16px] leading-[24px] whitespace-nowrap">Movimientos repetitivos</p>
+                                </div>
+                                <div class="bg-[rgba(255,255,255,0.7)] border border-white flex gap-3 items-center px-3 py-2 rounded-[20px]">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.5 10L9.16667 11.6667L12.5 8.33333M17.5 10C17.5 14.1421 14.1421 17.5 10 17.5C5.85786 17.5 2.5 14.1421 2.5 10C2.5 5.85786 5.85786 2.5 10 2.5C14.1421 2.5 17.5 5.85786 17.5 10Z" stroke="#5B9BD5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <p class="font-['Inter',sans-serif] text-[#364153] text-[16px] leading-[24px] whitespace-nowrap">Aplicación de fuerzas</p>
+                                </div>
+                                <div class="bg-[rgba(255,255,255,0.7)] border border-white flex gap-3 items-center px-3 py-2 rounded-[20px]">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.5 10L9.16667 11.6667L12.5 8.33333M17.5 10C17.5 14.1421 14.1421 17.5 10 17.5C5.85786 17.5 2.5 14.1421 2.5 10C2.5 5.85786 5.85786 2.5 10 2.5C14.1421 2.5 17.5 5.85786 17.5 10Z" stroke="#5B9BD5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <p class="font-['Inter',sans-serif] text-[#364153] text-[16px] leading-[24px] whitespace-nowrap">Vibraciones y condiciones ambientales</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Párrafo sobre metodologías -->
+                    <p class="font-['Inter',sans-serif] text-[#364153] text-[16px] leading-[26px] mb-6">
+                        Para realizar evaluaciones rigurosas y sistemáticas, es fundamental utilizar <span class="font-semibold">metodologías científicamente validadas y reconocidas técnicamente</span> que permiten:
+                    </p>
+                    <!-- Tres tarjetas de beneficios -->
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <!-- Card 1: Objetivar el riesgo -->
+                        <div class="rounded-[10px] border-[3px] border-[#eff6ff] p-6 flex flex-col items-center gap-3" style="background: linear-gradient(139.43deg, rgb(239, 246, 255) 0%, rgb(255, 255, 255) 100%);">
+                            <div class="flex items-center justify-center p-8 rounded-full" style="background: radial-gradient(circle, rgba(91,155,213,0.7) 24%, rgba(173,205,234,0.35) 62%, rgba(255,255,255,0) 100%);">
+                                <span class="material-symbols-outlined" style="font-size: 24px; color: white; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">emergency_home</span>
+                            </div>
+                            <h4 class="font-['Inter_Tight',sans-serif] text-[#101828] text-[24px] leading-[24px] text-center">Objetivar el riesgo</h4>
+                            <p class="font-['Inter',sans-serif] text-[#4a5565] text-[14px] leading-[20px] text-center">Cuantificar niveles de exposición con criterios estandarizados (ISO, EN, etc.)</p>
+                        </div>
+
+                        <!-- Card 2: Priorizar acciones -->
+                        <div class="rounded-[10px] border-[3px] border-[#eff6ff] p-6 flex flex-col items-center gap-3" style="background: linear-gradient(139.199deg, rgb(239, 246, 255) 0%, rgb(255, 255, 255) 100%);">
+                            <div class="flex items-center justify-center p-8 rounded-full" style="background: radial-gradient(circle, rgba(91,155,213,0.7) 24%, rgba(173,205,234,0.35) 62%, rgba(255,255,255,0) 100%);">
+                                <span class="material-symbols-outlined" style="font-size: 24px; color: white; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">zone_person_urgent</span>
+                            </div>
+                            <h4 class="font-['Inter_Tight',sans-serif] text-[#101828] text-[24px] leading-[24px] text-center">Priorizar acciones</h4>
+                            <p class="font-['Inter',sans-serif] text-[#4a5565] text-[14px] leading-[20px] text-center">Identificar qué puestos requieren intervención urgente según el nivel de riesgo</p>
+                        </div>
+
+                        <!-- Card 3: Cumplir normativa -->
+                        <div class="rounded-[10px] border-[3px] border-[#eff6ff] p-6 flex flex-col items-center gap-3" style="background: linear-gradient(139.199deg, rgb(239, 246, 255) 0%, rgb(255, 255, 255) 100%);">
+                            <div class="flex items-center justify-center p-8 rounded-full" style="background: radial-gradient(circle, rgba(91,155,213,0.7) 24%, rgba(173,205,234,0.35) 62%, rgba(255,255,255,0) 100%);">
+                                <span class="material-symbols-outlined" style="font-size: 24px; color: white; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">fact_check</span>
+                            </div>
+                            <h4 class="font-['Inter_Tight',sans-serif] text-[#101828] text-[24px] leading-[24px] text-center">Cumplir normativa</h4>
+                            <p class="font-['Inter',sans-serif] text-[#4a5565] text-[14px] leading-[20px] text-center">Demostrar cumplimiento legal ante inspecciones y auditorías</p>
+                        </div>
+                    </div>
+                    <!-- Bloque azul "¿Quieres aplicar..." -->
+                    <div class="rounded-[10px] p-8 mb-8" style="background: linear-gradient(to bottom, #5b9bd5, #4682b4);">
+                        <div class="flex flex-col gap-4">
+                            <div class="flex gap-4 items-start">
+                                <div class="bg-[rgba(255,255,255,0.2)] flex items-center justify-center p-3 rounded-full">
+                                    <span class="material-symbols-outlined" style="font-size: 24px; color: white; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">automation</span>
+                                </div>
+                                <h3 class="font-['Inter_Tight',sans-serif] text-white text-[28px] leading-[normal] flex-1">¿Quieres aplicar estas metodologías de forma guiada y generar informes automáticos?</h3>
+                            </div>
+                            <div class="bg-[rgba(255,255,255,0.1)] rounded-[12px] p-3">
+                                <p class="font-['Inter',sans-serif] text-[#eff6ff] text-[16px] leading-[24px]">
+                                    <span class="font-semibold">Ergo/IBV</span> integra estas metodologías (ISO 11228, OCRA, REBA, RULA, etc.) en una única herramienta de software. Te guía paso a paso en la recogida de datos y calcula automáticamente los índices de riesgo, reduciendo errores y acelerando el proceso.
+                                </p>
+                            </div>
+                            <p class="font-['Inter',sans-serif] text-[#eff6ff] text-[16px] leading-[24px]">Genera informes profesionales listos para auditoría y planificación preventiva, facilitando la toma de decisiones técnicas fundamentadas.</p>
+                        </div>
+                    </div>
+
+                    <!-- Sección "¿Qué metodologías son apropiadas..." -->
+                    <div class="bg-[#eff6ff] border border-[#bedbff] rounded-[10px] p-6 mb-6">
+                        <div class="flex flex-col gap-3">
+                            <h3 class="font-['Inter_Tight',sans-serif] text-[#5b9bd5] text-[28px] leading-[normal]">¿Qué metodologías son apropiadas para tu evaluación?</h3>
+                            <p class="font-['Inter',sans-serif] text-[#364153] text-[16px] leading-[24px]">Basándonos en las características del puesto de trabajo que has descrito, hemos identificado las metodologías más adecuadas para tu caso.</p>
+                            <p class="font-['Inter',sans-serif] font-medium text-[#364153] text-[16px] leading-[24px]">Para acceder a los resultados personalizados, por favor completa el siguiente formulario:</p>
+                        </div>
+                    </div>
+
+                    <!-- Caja blanca con icono de persona y formulario -->
+                    <div class="bg-white rounded-[10px] border border-[#5b9bd5] p-8 mb-6">
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="material-symbols-outlined" style="font-size: 32px; color: #5B9BD5; font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;">account_circle</span>
+                            <h3 class="font-['Inter_Tight',sans-serif] text-[#5b9bd5] text-[28px]">Accede a tu recomendación personalizada</h3>
+                        </div>
+                        <div id="hubspot-form-container"></div>
+                    </div>
+
+                    <!-- Botones de navegación -->
+                    <div class="flex justify-between pt-6 border-t">
+                        <button type="button" onclick="navigateToStep(2)" class="btn btn-outline flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Atrás
+                        </button>
+                        <button type="button" onclick="navigateToStep(4)" class="btn btn-primary flex items-center gap-2 px-6">
+                            Acceder
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+            `;
+            setTimeout(() => {
+                if (window.hbspt) {
+                    window.hbspt.forms.create({
+                        portalId: "26581627",
+                        formId: "147c48fe-d67f-4f51-8b2d-68b99cafab35",
+                        region: "eu1",
+                        target: "#hubspot-form-container",
+                        onFormSubmit: function($form) {
+                            setTimeout(() => {
+                                navigateToStep(4);
+                            }, 1000);
+                        }
+                    });
+                }
+            }, 100);
+        }
+
+        function renderResults() {
+            const recommended = getRecommendedMethodologies();
+            
+            let badgesPersonHTML = '';
+            if (formData.personConditions.qualitativeEvaluation) badgesPersonHTML += '<span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800 mr-2 mb-2">Evaluación cualitativa</span>';
+            if (formData.personConditions.seniorWorker) badgesPersonHTML += '<span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800 mr-2 mb-2">Trabajador senior</span>';
+            if (formData.personConditions.pregnancy) badgesPersonHTML += '<span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800 mr-2 mb-2">Embarazo</span>';
+            if (formData.personConditions.telework) badgesPersonHTML += '<span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800 mr-2 mb-2">Teletrabajo</span>';
+            if (formData.personConditions.screenWork) badgesPersonHTML += '<span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800 mr-2 mb-2">Pantallas +2h</span>';
+            
+            let badgesTaskHTML = '';
+            if (formData.physicalTaskLoad.manualHandling) badgesTaskHTML += '<span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800 mr-2 mb-2">Cargas ≥3 kg</span>';
+            if (formData.physicalTaskLoad.pushPull) badgesTaskHTML += '<span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800 mr-2 mb-2">Empuje/arrastre</span>';
+            if (formData.physicalTaskLoad.repetitiveMovements) badgesTaskHTML += '<span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800 mr-2 mb-2">Mov. repetitivos</span>';
+            if (formData.physicalTaskLoad.forcedPostures) badgesTaskHTML += '<span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800 mr-2 mb-2">Posturas forzadas</span>';
+            if (formData.physicalTaskLoad.toolsForceVibration) badgesTaskHTML += '<span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800 mr-2 mb-2">Herramientas fuerza/vibración</span>';
+
+            let methodologiesHTML = '';
+            recommended.forEach((method, index) => {
+                const riskClass = method.riskLevel === 'high' ? 'bg-red-100 text-red-800 border-red-200' : 
+                                 method.riskLevel === 'medium' ? 'bg-yellow-100 text-yellow-800 border-yellow-200' : 
+                                 'bg-green-100 text-green-800 border-green-200';
+                const riskText = method.riskLevel === 'high' ? 'Evaluación Detallada' : 
+                                method.riskLevel === 'medium' ? 'Evaluación Estándar' : 
+                                'Evaluación Inicial';
+                
+                const areaTranslations = {
+                    'handArms': 'Brazos',
+                    'back': 'Espalda',
+                    'lowerLimbs': 'Piernas',
+                    'wholebody': 'Cuerpo completo'
+                };
+                
+                let areasHTML = '';
+                method.bodyArea.forEach(area => {
+                    areasHTML += `<span class="inline-flex items-center px-2 py-1 rounded-md text-xs bg-gray-100 text-gray-700 mr-1 mb-1">${areaTranslations[area] || area}</span>`;
+                });
+
+                methodologiesHTML += `
+                    <div class="p-6 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span class="inline-flex items-center px-2 py-1 rounded-md text-sm border border-ergo-blue text-ergo-blue">#${index + 1}</span>
+                                    <h4 class="text-gray-900 font-['Inter_Tight',sans-serif] text-2xl">${method.name}</h4>
+                                </div>
+                                <span class="inline-flex items-center px-2 py-1 rounded-md text-xs border ${riskClass}">${riskText}</span>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-600 mb-4">${method.description}</p>
+                        
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+                            <span>Áreas:</span>
+                            <div class="flex flex-wrap">${areasHTML}</div>
+                        </div>
+                        
+                        ${method.link ? `
+                        <button 
+                            onclick="window.open('${method.link}', '_blank')"
+                            class="btn btn-outline-blue w-full md:w-auto flex items-center justify-center gap-2"
+                        >
+                            Más información
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </button>
+                        ` : ''}
+                    </div>
+                `;
+            });
+            
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = `
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-[rgb(97,164,215)] mb-4 font-['Inter_Tight',sans-serif] text-[36px]">Resultados: Metodologías Recomendadas</h2>
+                        <p class="text-gray-600">
+                            Basándonos en las condiciones de trabajo identificadas, le recomendamos las siguientes 
+                            metodologías de evaluación ergonómica:
+                        </p>
+                    </div>
+
+                    <!-- Resumen de entrada -->
+                    <div class="p-6 bg-blue-50 border border-blue-200 rounded-lg">
+                        <h3 class="text-[rgb(97,164,215)] mb-2 flex items-center font-['Inter_Tight',sans-serif] text-[28px]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                            Resumen de su evaluación
+                        </h3>
+                        <div class="space-y-3 text-sm">
+                            <div>
+                                <span class="text-gray-600 block mb-1">Condiciones de la persona:</span>
+                                <div class="flex flex-wrap">${badgesPersonHTML || '<span class="text-gray-500 italic">Ninguna seleccionada</span>'}</div>
+                            </div>
+                            
+                            <div>
+                                <span class="text-gray-600 block mb-1">Carga física de la tarea:</span>
+                                <div class="flex flex-wrap">${badgesTaskHTML || '<span class="text-gray-500 italic">Ninguna seleccionada</span>'}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Metodologías recomendadas -->
+                    <div class="space-y-4">
+                        <h3 class="text-gray-900 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 text-green-600">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            ${recommended.length} ${recommended.length === 1 ? 'Metodología Recomendada' : 'Metodologías Recomendadas'}
+                        </h3>
+
+                        ${methodologiesHTML}
+                    </div>
+
+                    <!-- Recomendaciones adicionales -->
+                    <div class="p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+                        <h3 class="text-gray-900 mb-3 text-[28px] font-['Inter_Tight',sans-serif]">Recomendaciones</h3>
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Consulte con un especialista en ergonomía para una evaluación detallada del puesto de trabajo.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Las metodologías pueden combinarse para obtener una evaluación más completa.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="mr-2">•</span>
+                                <span>Visite <a href="https://www.ergoibv.com" target="_blank" rel="noopener noreferrer" class="text-ergo-blue underline">www.ergoibv.com</a> para acceder a herramientas de evaluación profesionales.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Acciones -->
+                    <div class="flex flex-wrap gap-3 pt-6 border-t justify-between">
+                        <button 
+                            onclick="navigateToStep(3)"
+                            class="btn btn-outline flex items-center gap-2"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                            Atrás
+                        </button>
+                        
+                        <div class="flex gap-3">
+                            <button 
+                                onclick="handleDownloadPDF()"
+                                class="btn btn-outline-blue flex items-center gap-2"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                Descargar PDF
+                            </button>
+                            <button 
+                                onclick="window.open('https://www.ergoibv.com/es/contacta/', '_blank')"
+                                class="btn btn-outline-blue flex items-center gap-2"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                                Contacto
+                            </button>
+                            <button 
+                                onclick="window.open('https://www.ergoibv.com/es/', '_blank')"
+                                class="btn btn-outline-blue flex items-center gap-2"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                </svg>
+                                +info sobre Ergo/IBV
+                            </button>
+                            <button 
+                                onclick="handleRestart()"
+                                class="btn btn-primary"
+                            >
+                                Nueva Evaluación
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function getRecommendedMethodologies() {
+            const { qualitativeEvaluation, seniorWorker, pregnancy, telework, screenWork } = formData.personConditions;
+            const { manualHandling, pushPull, repetitiveMovements, forcedPostures, toolsForceVibration } = formData.physicalTaskLoad;
+
+            let recommended = [];
+
+            // PASO 1: Condiciones de Persona (orden de prioridad)
+            
+            // PRIORITARIO: Embarazo
+            if (pregnancy) {
+                const ergomater = methodologies.find(m => m.id === "ergomater");
+                if (ergomater) recommended.push(ergomater);
+            }
+
+            // Trabajador senior (+50 años)
+            if (seniorWorker) {
+                const ergo50 = methodologies.find(m => m.id === "ergo50");
+                if (ergo50) recommended.push(ergo50);
+            }
+
+            // Evaluación inicial cualitativa
+            if (qualitativeEvaluation) {
+                const ergocheck = methodologies.find(m => m.id === "ergocheck");
+                if (ergocheck) recommended.push(ergocheck);
+            }
+
+            // Teletrabajo
+            if (telework) {
+                const teletrabajoTool = methodologies.find(m => m.id === "teletrabajo");
+                if (teletrabajoTool) recommended.push(teletrabajoTool);
+            }
+
+            // Trabajo con PVD (Pantallas de Visualización)
+            if (screenWork) {
+                const pvd = methodologies.find(m => m.id === "pvd");
+                if (pvd) recommended.push(pvd);
+            }
+
+            // PASO 2: Carga Física
+
+            // Manipulación manual de cargas
+            if (manualHandling) {
+                const mmc = methodologies.find(m => m.id === "mmc");
+                if (mmc) recommended.push(mmc);
+            }
+
+            // Empujes y arrastres
+            if (pushPull) {
+                const empuje = methodologies.find(m => m.id === "empuje");
+                if (empuje) recommended.push(empuje);
+            }
+
+            // Movimientos repetitivos
+            if (repetitiveMovements) {
+                const ocra = methodologies.find(m => m.id === "ocra");
+                if (ocra) recommended.push(ocra);
+            }
+
+            // Posturas forzadas - recomendar OWAS, REBA y RULA
+            if (forcedPostures) {
+                const owas = methodologies.find(m => m.id === "owas");
+                const reba = methodologies.find(m => m.id === "reba");
+                const rula = methodologies.find(m => m.id === "rula");
+                if (owas) recommended.push(owas);
+                if (reba) recommended.push(reba);
+                if (rula) recommended.push(rula);
+            }
+
+            // Herramientas con fuerza o vibración
+            if (toolsForceVibration) {
+                const fuerzaVib = methodologies.find(m => m.id === "fuerza-vibracion");
+                if (fuerzaVib) recommended.push(fuerzaVib);
+            }
+
+            // Eliminar duplicados manteniendo el orden
+            const uniqueRecommended = Array.from(new Map(recommended.map(item => [item.id, item])).values());
+
+            // Si no hay recomendaciones, sugerir evaluación inicial
+            if (uniqueRecommended.length === 0) {
+                const ergocheck = methodologies.find(m => m.id === "ergocheck");
+                if (ergocheck) uniqueRecommended.push(ergocheck);
+            }
+
+            return uniqueRecommended;
+        }
+
+        // Manejadores de eventos
+        function handleStep1Submit(e) {
+            e.preventDefault();
+            navigateToStep(2);
+        }
+
+        function handleStep2Submit(e) {
+            e.preventDefault();
+            console.log('Navegando al paso 3 desde handleStep2Submit');
+            navigateToStep(3);
+        }
+
+        function handleDownloadPDF() {
+            alert("Funcionalidad de descarga PDF disponible en la versión completa");
+        }
+
+        function handleRestart() {
+            // Reiniciar datos
+            formData.personConditions = {
+                qualitativeEvaluation: false,
+                seniorWorker: false,
+                pregnancy: false,
+                telework: false,
+                screenWork: false
+            };
+            formData.physicalTaskLoad = {
+                manualHandling: false,
+                pushPull: false,
+                repetitiveMovements: false,
+                forcedPostures: false,
+                toolsForceVibration: false
+            };
+            navigateToStep(0);
+        }
+
+        // Inicializar la aplicación
+        document.addEventListener('DOMContentLoaded', function() {
+            renderCurrentStep();
+        });
+    </script>
+</body>
+</html>
